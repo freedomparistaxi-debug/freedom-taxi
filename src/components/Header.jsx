@@ -37,112 +37,118 @@ export const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-navy-950/95 backdrop-blur-md py-3 shadow-lg border-b border-white/10'
-            : 'bg-gradient-to-b from-navy-950/90 via-navy-950/60 to-transparent py-5 sm:py-6'
+            ? 'bg-white/95 backdrop-blur-md py-2.5 shadow-nav border-b border-slate-200/80'
+            : 'bg-white/80 backdrop-blur-sm py-3.5 border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Logo />
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+          {/* Navigation desktop */}
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Navigation principale">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-200 hover:text-white transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-400 hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded"
+                className="text-sm font-medium text-ink-700 hover:text-brand-700 transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 hover:after:w-full after:transition-all after:duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Action button Call — visible sur desktop ET tablette */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Actions a droite : appel + reservation */}
+          <div className="hidden sm:flex items-center gap-2.5 flex-shrink-0">
             <Button
               href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-              variant="outline-white"
+              variant="primary-blue"
               size="sm"
               icon={Phone}
-              className="font-semibold tracking-wide border-gold-400/40 text-gold-300 hover:border-gold-400 hover:bg-gold-400/10"
               ariaLabel={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
             >
               {BUSINESS_CONFIG.phone}
             </Button>
+            <Button href="#reservation" variant="outline-navy" size="sm" icon={Calendar}>
+              Réserver
+            </Button>
           </div>
 
-          {/* Mobile Hamburger toggle */}
+          {/* Mobile : appel + menu */}
           <div className="flex items-center gap-2 sm:hidden">
             <a
               href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-              className="p-2 text-gold-400 bg-navy-800/80 border border-gold-400/30 rounded-full hover:bg-navy-700"
-              aria-label="Appeler maintenant"
+              className="p-2.5 text-brand-600 bg-brand-50 border border-brand-200 rounded-full hover:bg-brand-100 transition-colors"
+              aria-label={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-[18px] h-[18px]" />
             </a>
 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-200 hover:text-white bg-navy-800/80 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-gold-400"
+              className="p-2.5 text-ink-700 hover:text-brand-700 bg-white border border-slate-200 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               aria-expanded={mobileMenuOpen}
-              aria-label="Ouvrir le menu de navigation"
+              aria-controls="menu-mobile"
+              aria-label={mobileMenuOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Menu mobile */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-navy-950/95 backdrop-blur-xl sm:hidden flex flex-col justify-between pt-24 pb-8 px-6 transition-all duration-300 animate-fadeIn"
+          id="menu-mobile"
+          className="fixed inset-0 z-40 bg-white sm:hidden flex flex-col justify-between pt-24 pb-8 px-6 animate-fadeIn"
           role="dialog"
           aria-modal="true"
+          aria-label="Menu de navigation"
         >
-          <div className="flex flex-col gap-5">
-            <div className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-2">
-              Menu Freedom Taxi
+          <nav className="flex flex-col" aria-label="Navigation mobile">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-brand-600 font-semibold mb-3">
+              Menu
             </div>
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={closeMobile}
-                className="text-xl font-semibold text-white hover:text-gold-400 py-2 border-b border-white/5 transition-colors"
+                className="text-lg font-semibold text-ink-900 hover:text-brand-700 py-3.5 border-b border-slate-100 transition-colors"
               >
                 {link.label}
               </a>
             ))}
-          </div>
+          </nav>
 
           <div className="mt-8 flex flex-col gap-3">
             <Button
               href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-              variant="primary-gold"
+              variant="primary-blue"
               size="lg"
               icon={Phone}
-              className="w-full text-center"
+              className="w-full"
               ariaLabel={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
             >
               Appeler {BUSINESS_CONFIG.phone}
             </Button>
             <a
               href={`tel:${BUSINESS_CONFIG.phones[1].raw}`}
-              className="text-center py-3 rounded-full border border-gold-400/40 text-gold-300 font-semibold text-sm hover:border-gold-400 hover:bg-gold-400/10 transition-all"
+              className="text-center py-3 text-sm font-medium text-ink-700 hover:text-brand-700 transition-colors"
             >
               ou {BUSINESS_CONFIG.phones[1].label}
             </a>
             <Button
               href="#reservation"
-              variant="outline-white"
-              size="md"
+              variant="outline-navy"
+              size="lg"
+              icon={Calendar}
               onClick={closeMobile}
-              className="w-full text-center text-slate-200"
+              className="w-full"
             >
               Réserver en ligne
             </Button>
@@ -150,22 +156,22 @@ export const Header = () => {
         </div>
       )}
 
-      {/* Barre d'appel permanente sur mobile */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-navy-950/95 backdrop-blur-md border-t border-gold-400/20 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-3">
+      {/* Barre fixe mobile : deux actions seulement, hauteur contenue */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/97 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex gap-2.5 shadow-[0_-2px_16px_-8px_rgba(21,33,46,0.18)]">
         <a
           href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-gold-400 text-navy-950 font-bold text-sm shadow-lg active:scale-[0.98] transition-transform"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-brand-600 text-white font-semibold text-sm active:scale-[0.99] transition-colors hover:bg-brand-700"
           aria-label={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
         >
-          <Phone className="w-4 h-4" />
-          Appeler maintenant
+          <Phone className="w-4 h-4" aria-hidden="true" />
+          Appeler
         </a>
         <a
           href="#reservation"
           onClick={closeMobile}
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full border border-white/25 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full border border-slate-300 bg-white text-ink-900 font-semibold text-sm active:scale-[0.99] transition-colors hover:border-brand-400 hover:text-brand-700"
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-4 h-4" aria-hidden="true" />
           Réserver
         </a>
       </div>

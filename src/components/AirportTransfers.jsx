@@ -57,7 +57,7 @@ export const AirportTransfers = () => {
           </figure>
 
           <div className="space-y-6">
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+            <p className="text-base sm:text-lg text-ink-700 leading-relaxed">
               Que vous arriviez sur un vol de nuit, que vous partiez en famille ou que vous
               transportiez plusieurs bagages, nous adaptons le trajet et l'equipement du
               vehicule a votre situation.
@@ -71,12 +71,12 @@ export const AirportTransfers = () => {
                     key={point.title}
                     className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-slate-200/80 hover:border-gold-400/50 transition-colors"
                   >
-                    <div className="w-11 h-11 rounded-xl bg-blue-100 text-brandBlue-600 flex items-center justify-center flex-shrink-0">
+                    <div className="w-11 h-11 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
                       <h3 className="font-bold text-navy-900 text-sm mb-1">{point.title}</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{point.desc}</p>
+                      <p className="text-sm text-ink-700 leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
                 );
@@ -94,7 +94,7 @@ export const AirportTransfers = () => {
               </Button>
               <Button
                 href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-                variant="outline-white"
+                variant="outline-navy"
                 size="md"
                 icon={Phone}
                 className="!text-navy-900 !border-slate-300 hover:!bg-slate-100"

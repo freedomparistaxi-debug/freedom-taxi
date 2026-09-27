@@ -52,7 +52,7 @@ export const Contact = () => {
                 <Button
                   key={phone.raw}
                   href={`tel:${phone.raw}`}
-                  variant={phone.raw === BUSINESS_CONFIG.phoneRaw ? 'primary-gold' : 'outline-white'}
+                  variant={phone.raw === BUSINESS_CONFIG.phoneRaw ? 'primary-blue' : 'outline-navy'}
                   size="md"
                   icon={Phone}
                   ariaLabel={`Appeler Freedom Taxi au ${phone.label}`}

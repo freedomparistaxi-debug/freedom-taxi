@@ -7,39 +7,67 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#050D18',
-          900: '#071426',
-          850: '#09182C',
-          800: '#0B1D33',
-          700: '#112B4C',
-          600: '#1A3F6D',
+        // Bleu de marque : couleur principale, sobre et professionnelle.
+        brand: {
+          50:  '#F2F7FC',
+          100: '#E3EEF9',
+          200: '#C3DCF1',
+          300: '#94C1E4',
+          400: '#5D9FD2',
+          500: '#2F7FC0',
+          600: '#1D639D',
+          700: '#164E7C',
+          800: '#123D5E',
+          900: '#0F2E47',
         },
+        // Bleu profond : reserve aux zones de contraste (pied de page,
+        // petits blocs d'appui). Evite le « gros bleu nuit » d'avant.
+        navy: {
+          950: '#0B2136',
+          900: '#0F2E47',
+          850: '#153A57',
+          800: '#1B4667',
+          700: '#245A80',
+          600: '#2F6E9B',
+        },
+        // Or : utilise avec parcimonie (filets, icones, un seul accent).
         gold: {
-          300: '#F5DE98',
-          400: '#E8C96A',
-          500: '#D4AF37',
-          600: '#B89325',
+          200: '#F6E7BC',
+          300: '#EFD68E',
+          400: '#E3C263',
+          500: '#C9A227',
+          600: '#A5851D',
         },
         brandBlue: {
-          400: '#2A7FD6',
-          500: '#1D67B1',
-          600: '#155291',
+          400: '#5D9FD2',
+          500: '#2F7FC0',
+          600: '#1D639D',
         },
         surface: {
-          light: '#F7F9FC',
-          card: '#FFFFFF',
-          darkCard: '#0D2139',
-        }
+          light:  '#F6F8FB',
+          card:   '#FFFFFF',
+          darkCard: '#12304A',
+        },
+        // Texte : gris fonce, jamais noir pur.
+        ink: {
+          900: '#15212E',
+          700: '#33455A',
+          500: '#5A6B80',
+        },
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'card-soft': '0 10px 30px -5px rgba(7, 20, 38, 0.08), 0 4px 12px -2px rgba(7, 20, 38, 0.04)',
-        'card-hover': '0 20px 40px -10px rgba(7, 20, 38, 0.16), 0 8px 18px -4px rgba(7, 20, 38, 0.08)',
-        'glow-gold': '0 0 25px rgba(232, 201, 106, 0.35)',
-        'glow-blue': '0 0 25px rgba(29, 103, 177, 0.35)',
+        // Ombres tres legeres : le relief vient de la bordure, pas de l'ombre.
+        'card-soft': '0 1px 2px rgba(21, 33, 46, 0.04), 0 6px 18px -8px rgba(21, 33, 46, 0.10)',
+        'card-hover': '0 2px 4px rgba(21, 33, 46, 0.05), 0 14px 32px -12px rgba(21, 33, 46, 0.16)',
+        'nav': '0 1px 2px rgba(21, 33, 46, 0.04), 0 8px 24px -14px rgba(21, 33, 46, 0.14)',
+        'glow-gold': '0 6px 18px -8px rgba(201, 162, 39, 0.45)',
+        'glow-blue': '0 8px 22px -10px rgba(29, 99, 157, 0.40)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
       },
       keyframes: {
         fadeIn: {

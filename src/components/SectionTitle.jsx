@@ -11,26 +11,23 @@ export const SectionTitle = ({
   const isCenter = align === 'center';
 
   return (
-    <div className={`mb-12 md:mb-16 ${isCenter ? 'text-center mx-auto max-w-3xl' : 'text-left max-w-2xl'} ${className}`}>
-      {/* Badge fin avec filet doré dans l'esprit de la maquette */}
+    <div className={`mb-10 md:mb-14 ${isCenter ? 'text-center mx-auto max-w-3xl' : 'text-left max-w-2xl'} ${className}`}>
+      {/* Sur-titre discret, bleu de marque */}
       {badge && (
-        <div className={`inline-flex items-center gap-3 mb-3 ${isCenter ? 'justify-center' : 'justify-start'}`}>
-          <span className="w-6 h-[1.5px] bg-gold-400"></span>
-          <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold-400 uppercase">
+        <div className={`inline-flex items-center gap-2.5 mb-3.5 ${isCenter ? 'justify-center' : 'justify-start'}`}>
+          <span className="w-5 h-px bg-brand-300"></span>
+          <span className="text-[11px] md:text-xs font-bold tracking-[0.2em] text-brand-600 uppercase">
             {badge}
           </span>
-          <span className="w-6 h-[1.5px] bg-gold-400"></span>
         </div>
       )}
 
-      {/* Titre principal */}
-      <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight ${light ? 'text-white' : 'text-navy-900'}`}>
+      <h2 className={`text-[1.75rem] sm:text-3xl lg:text-[2.125rem] font-bold tracking-tight leading-[1.2] ${light ? 'text-white' : 'text-ink-900'}`}>
         {title}
       </h2>
 
-      {/* Sous-titre ou court descriptif */}
       {subtitle && (
-        <p className={`mt-3 text-base sm:text-lg leading-relaxed ${light ? 'text-slate-300' : 'text-slate-600'}`}>
+        <p className={`mt-3.5 text-[15px] sm:text-base leading-relaxed ${light ? 'text-slate-300' : 'text-ink-700'}`}>
           {subtitle}
         </p>
       )}

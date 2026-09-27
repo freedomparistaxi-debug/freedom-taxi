@@ -27,27 +27,25 @@ export const TrustBar = () => {
   ];
 
   return (
-    <section className="relative z-20 bg-navy-950/80 border-y border-white/10 py-8 backdrop-blur-md">
+    <section className="relative z-20 bg-white border-b border-slate-200 py-7">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5 sm:gap-x-8">
           {items.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div 
-                key={idx} 
-                className="flex items-center gap-3.5 sm:gap-4 group p-2 rounded-xl transition-all duration-300 hover:bg-white/[0.03]"
+              <div
+                key={idx}
+                className="flex items-center gap-3 sm:gap-4"
               >
-                {/* Icône circulaire stylisée comme sur la maquette */}
-                <div className="w-12 h-12 rounded-full border border-white/20 bg-navy-900/80 flex items-center justify-center flex-shrink-0 text-white group-hover:border-gold-400 group-hover:text-gold-400 transition-colors duration-300">
-                  <Icon className="w-5 h-5" strokeWidth={1.75} />
+                <div className="w-11 h-11 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0 text-brand-600">
+                  <Icon className="w-5 h-5" strokeWidth={1.9} aria-hidden="true" />
                 </div>
-                
-                {/* Titre et description */}
+
                 <div className="min-w-0">
-                  <h3 className="text-sm sm:text-base font-bold text-white tracking-tight">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-ink-900 leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 truncate">
+                  <p className="text-xs sm:text-[13px] text-ink-500 leading-snug">
                     {item.desc}
                   </p>
                 </div>

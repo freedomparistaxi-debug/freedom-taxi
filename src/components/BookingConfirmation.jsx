@@ -41,7 +41,7 @@ export const BookingConfirmation = ({ formData, onReset }) => {
       <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button
           onClick={onReset}
-          variant="outline-white"
+          variant="outline-navy"
           size="md"
           className="!text-navy-900 !border-slate-300 hover:!bg-slate-100"
         >

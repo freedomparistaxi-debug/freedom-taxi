@@ -7,7 +7,7 @@ import { BUSINESS_CONFIG } from '../config/business';
 
 export const ServiceArea = () => {
   return (
-    <section className="py-20 lg:py-28 bg-navy-950 text-white relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-brand-800 text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionTitle
           badge="PÉRIMÈTRE D'INTERVENTION"
@@ -19,23 +19,23 @@ export const ServiceArea = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white flex items-center gap-3">
-                <MapPin className="w-6 h-6 text-gold-400" />
+              <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 leading-snug">
+                <MapPin className="w-6 h-6 text-gold-300 flex-shrink-0" />
                 <span>Une zone d'intervention élargie</span>
               </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-brand-100 text-sm sm:text-base leading-relaxed">
                 Freedom Taxi intervient au quotidien pour toutes vos prises en charge à Paris et en Seine-Saint-Denis, que ce soit pour un trajet local, une liaison vers les gares parisiennes ou un transfert aéroportuaire.
               </p>
             </div>
 
             <div className="space-y-3 pt-2">
-              <div className="text-xs uppercase tracking-wider text-gold-400 font-bold">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-brand-200 font-bold">
                 Zones régulières
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-300">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-50">
                 {BUSINESS_CONFIG.coverage.map((area, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-navy-900/60 border border-white/10">
-                    <CheckCircle className="w-4 h-4 text-gold-400 flex-shrink-0" />
+                  <div key={idx} className="flex items-center gap-2 p-3 rounded-xl bg-white/[0.07] border border-white/10">
+                    <CheckCircle className="w-4 h-4 text-gold-300 flex-shrink-0" />
                     <span>{area}</span>
                   </div>
                 ))}
@@ -55,7 +55,7 @@ export const ServiceArea = () => {
             {/* Photo reelle : notre taxi a Paris, sur les quais de Seine */}
             <figure className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
               <PhotoImage
-                src=".jpg"
+                src="/images/Paris.jpg"
                 alt="Freedom Taxi, taxi parisien, devant la tour Eiffel a Paris au coucher du soleil"
                 width={1672}
                 height={941}

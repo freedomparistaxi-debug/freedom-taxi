@@ -137,7 +137,7 @@ export const BookingForm = () => {
           <aside className="lg:col-span-5 xl:col-span-4 space-y-5">
             <figure className="relative rounded-3xl overflow-hidden shadow-card-hover border border-slate-200">
               <PhotoImage
-                src=".jpg"
+                src="/images/reservation.jpg"
                 alt="Freedom Taxi a l'arret devant un hotel : reservation et prise en charge sur place"
                 width={1672}
                 height={941}

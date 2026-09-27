@@ -7,115 +7,108 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] lg:min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-navy-950"
+      className="relative flex items-center pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32 bg-white overflow-hidden"
     >
-      {/* Arrière-plan avec la véritable photo Freedom Taxi (voiture réelle + coucher de soleil) */}
+      {/* Photo reelle du vehicule. Voiles tres legers : le texte est pose sur
+          une carte blanche plutot que sur l'image, ce qui garantit un contraste
+          fiable sans assombrir le vehicule. */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/freedom-taxi-hero.jpeg"
-          alt="Freedom Taxi : notre Toyota Corolla taxi parisien devant la tour Eiffel au coucher du soleil"
-          width={1600}
-          height={900}
-          // React 18 ne reconnait pas `fetchPriority` (camelCase) : il ne
-          // connaissait que `fetchpriority` en minuscules, et le prop camelCase
-          // se retrouve parasite sur le DOM. On passe par une variable en
-          // minuscules via {...} pour que l'attribut HTML soit correct sans
-          // déclencher l'avertissement React.
-          {...{ fetchpriority: 'high' }}
-          decoding="sync"
-          className="w-full h-full object-cover object-[72%_60%] sm:object-[70%_center] lg:object-[right_center]"
-        />
-
-        {/* Dégradés superposés pour garantir une lisibilité optimale du texte à gauche tout en laissant la voiture visible à droite */}
-        {/* Dégradé horizontal : sombre et opaque à gauche, s'estompant vers la droite pour révéler la berline */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 sm:via-navy-950/80 md:via-navy-950/70 to-transparent"></div>
-
-        {/* Dégradé vertical haut/bas pour l'intégration douce avec le header et la section suivante */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/70"></div>
-
-        {/* Voile assombrissant léger supplémentaire sur mobile pour préserver le contraste */}
-        <div className="absolute inset-0 bg-navy-950/40 sm:bg-transparent pointer-events-none"></div>
+        <picture className="block w-full h-full">
+          <source srcSet="/images/freedom-taxi-hero.webp" type="image/webp" />
+          <img
+            src="/images/freedom-taxi-hero.jpg"
+            alt="Freedom Taxi, taxi parisien et taxi conventionne, a Paris"
+            width={1672}
+            height={941}
+            {...{ fetchpriority: 'high' }}
+            decoding="sync"
+            className="w-full h-full object-cover object-[68%_center] sm:object-center"
+          />
+        </picture>
+        {/* Voile blanc tres leger : adoucit l'image sans la ternir. */}
+        <div className="absolute inset-0 bg-white/35"></div>
+        {/* Fondu vers le bas : la photo se prolonge dans la section suivante
+            au lieu de s'arreter net. */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-light to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-2xl lg:max-w-3xl text-left space-y-6">
-          
-          {/* Badge officiel de réassurance */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-900/90 backdrop-blur-md border border-gold-400/40 text-gold-400 text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-            VOS DÉPLACEMENTS EN TOUTE SÉRÉNITÉ
-          </div>
+        {/* Carte blanche semi-opaque : porte le texte et garantit un contraste
+            fiable quelle que soit la luminosite de la photo. */}
+        <div className="max-w-2xl bg-white/95 rounded-3xl sm:rounded-4xl border border-slate-200 shadow-card-hover px-6 py-9 sm:px-10 sm:py-11 lg:px-12 lg:py-12">
+          <div className="space-y-6">
 
-          {/* Titre Freedom Taxi */}
-          <div className="space-y-2">
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight uppercase leading-[1.08] drop-shadow-md">
-              FREEDOM <span className="text-gold-400">TAXI</span>
-            </h1>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-100 flex items-center gap-2">
-              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 flex-shrink-0" />
-              <span>Taxi parisien — <span className="text-white underline decoration-gold-400/70 decoration-2 underline-offset-4">Taxi conventionné</span></span>
+            {/* Positionnement */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-[10px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0"></span>
+              Taxi parisien — Taxi conventionné
             </div>
-          </div>
 
-          <div className="w-20 h-1.5 bg-gold-400 rounded-full shadow-sm"></div>
-
-          {/* Texte de présentation */}
-          <p className="text-base sm:text-lg text-slate-200 max-w-xl font-normal leading-relaxed drop-shadow">
-            Freedom Taxi assure vos déplacements personnels, professionnels et vers les établissements de santé à <strong className="text-white font-semibold">Paris, en Seine-Saint-Denis et aux alentours</strong>. Ponctualité, discrétion et confort.
-          </p>
-
-          {/* Boutons d'action fonctionnels */}
-          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Button
-              href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
-              variant="primary-gold"
-              size="lg"
-              icon={Phone}
-              className="shadow-xl text-base font-bold"
-              ariaLabel={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
-            >
-              Appeler {BUSINESS_CONFIG.phone}
-            </Button>
-
-            <Button
-              href="#reservation"
-              variant="outline-white"
-              size="lg"
-              icon={Calendar}
-              iconRight={ArrowRight}
-              className="backdrop-blur-md bg-navy-950/40 hover:bg-white hover:text-navy-900 border-white/30 text-base font-semibold"
-            >
-              Réserver un taxi
-            </Button>
-          </div>
-
-          {/* Second numéro */}
-          <div className="flex items-center gap-2 text-sm text-slate-300">
-            <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-            <span>Ou appelez-nous au</span>
-            <a
-              href={`tel:${BUSINESS_CONFIG.phones[1].raw}`}
-              className="font-bold text-white hover:text-gold-400 underline underline-offset-4 transition-colors"
-            >
-              {BUSINESS_CONFIG.phones[1].label}
-            </a>
-          </div>
-
-          {/* Informations de confiance */}
-          <div className="pt-4 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-900/80 backdrop-blur-md border border-white/10 text-gold-300 font-medium">
-              <ShieldCheck className="w-4 h-4 text-gold-400 flex-shrink-0" />
-              <span>Taxi conventionné</span>
+            <div className="space-y-3">
+              <h1 className="text-[2.5rem] sm:text-5xl lg:text-6xl font-extrabold text-ink-900 tracking-tight leading-[1.05]">
+                FREEDOM <span className="text-brand-600">TAXI</span>
+              </h1>
+              <div className="flex items-center gap-2 text-base sm:text-lg font-semibold text-ink-700">
+                <MapPin className="w-5 h-5 sm:w-[22px] sm:h-[22px] text-brand-500 flex-shrink-0" />
+                <span>Paris, Seine-Saint-Denis et alentours</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900/80 backdrop-blur-md border border-white/10 text-slate-200">
-              <Clock className="w-4 h-4 text-brandBlue-400 flex-shrink-0" />
-              <span>{BUSINESS_CONFIG.availability}</span>
-            </div>
-            <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900/80 backdrop-blur-md border border-white/10 text-slate-200">
-              <span>Réservation immédiate ou à l'avance</span>
-            </div>
-          </div>
 
+            <div className="w-16 h-1 bg-gold-400 rounded-full"></div>
+
+            <p className="text-[15px] sm:text-lg text-ink-700 leading-relaxed">
+              Vos déplacements personnels, professionnels et vers les établissements de santé.
+              Ponctualité, discrétion et confort, <strong className="text-ink-900 font-semibold">sur réservation ou par téléphone</strong>.
+            </p>
+
+            {/* Boutons d'action */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <Button
+                href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
+                variant="primary-blue"
+                size="lg"
+                icon={Phone}
+                ariaLabel={`Appeler Freedom Taxi au ${BUSINESS_CONFIG.phone}`}
+              >
+                Appeler
+              </Button>
+
+              <Button
+                href="#reservation"
+                variant="primary-navy"
+                size="lg"
+                icon={Calendar}
+                iconRight={ArrowRight}
+              >
+                Réserver un taxi
+              </Button>
+            </div>
+
+            {/* Second numero et elements de reassurance */}
+            <div className="pt-1 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-[13px] sm:text-sm text-ink-700">
+              <span className="inline-flex items-center gap-1.5">
+                <Phone className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                ou
+                <a
+                  href={`tel:${BUSINESS_CONFIG.phones[1].raw}`}
+                  className="font-semibold text-ink-900 underline decoration-brand-300 decoration-2 underline-offset-4 hover:text-brand-600 transition-colors"
+                >
+                  {BUSINESS_CONFIG.phones[1].label}
+                </a>
+              </span>
+
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                Taxi conventionné
+              </span>
+
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                {BUSINESS_CONFIG.availability}
+              </span>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
