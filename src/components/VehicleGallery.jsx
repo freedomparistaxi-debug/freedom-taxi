@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Car, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import { PhotoImage } from './PhotoImage';
@@ -58,7 +58,7 @@ export const VehicleGallery = () => {
   };
 
   return (
-    <section id="vehicule" className="py-20 lg:py-28 bg-surface-light relative overflow-hidden">
+    <section id="vehicule" className="py-14 sm:py-20 lg:py-28 bg-surface-light relative overflow-hidden">
       {/* Halos decoratifs */}
       <div className="pointer-events-none absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-brand-300/25 blur-3xl"></div>
       <div className="pointer-events-none absolute -bottom-40 -right-24 w-[26rem] h-[26rem] rounded-full bg-gold-300/20 blur-3xl"></div>

@@ -120,10 +120,6 @@ export const BookingFormFields = ({
           Besoin immédiat ? Appelez le{' '}
           <a href={`tel:${BUSINESS_CONFIG.phoneRaw}`} className="text-navy-900 font-bold underline">
             {BUSINESS_CONFIG.phone}
-          </a>{' '}
-          ou le{' '}
-          <a href={`tel:${BUSINESS_CONFIG.phones[1].raw}`} className="text-navy-900 font-bold underline">
-            {BUSINESS_CONFIG.phones[1].label}
           </a>
           .
         </p>

@@ -16,8 +16,8 @@ export const TrustBar = () => {
     },
     {
       icon: Users,
-      title: "À votre écoute",
-      desc: "Un accompagnement personnalisé"
+      title: "Professionnalisme",
+      desc: "Chauffeurs formés et réguliers"
     },
     {
       icon: MapPin,

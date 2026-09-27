@@ -3,7 +3,7 @@
 Site vitrine + formulaire de réservation avec **envoi réel d'e-mails**.
 
 - **Zone desservie :** Paris / Seine-Saint-Denis et alentours
-- **Téléphones :** 07 61 13 56 73 · 07 70 02 57 00
+- **Téléphones :** 07 61 13 56 73
 - **Stack :** React 18 + Vite 6 + TailwindCSS + Express + Nodemailer
 
 ---

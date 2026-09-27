@@ -29,7 +29,7 @@ const POINTS = [
  */
 export const AirportTransfers = () => {
   return (
-    <section id="aeroport" className="py-20 lg:py-28 bg-surface-light relative overflow-hidden">
+    <section id="aeroport" className="py-14 sm:py-20 lg:py-28 bg-surface-light relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="TRANSFERTS & AEROPORTS"

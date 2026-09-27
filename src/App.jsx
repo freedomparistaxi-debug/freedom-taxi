@@ -19,12 +19,14 @@ function App() {
       <main>
         <Hero />
         <TrustBar />
-        <Services />
+        {/* Le bloc "taxi conventionné" est remonté juste après le Hero : c'est la
+            première vraie photo de service, elle est donc visible très tôt sur mobile. */}
         <MedicalTransport />
+        <Services />
         <AirportTransfers />
+        <ServiceArea />
         <VehicleGallery />
         <BookingForm />
-        <ServiceArea />
         <About />
         <Contact />
       </main>

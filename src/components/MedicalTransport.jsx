@@ -16,17 +16,13 @@ export const MedicalTransport = () => {
       desc: "Liaisons régulières vers les hôpitaux et cliniques de Paris et de la Seine-Saint-Denis."
     },
     {
-      title: "Accompagnement bienveillant",
-      desc: "Aide à la montée, à la descente et prise en charge attentionnée pour les personnes en soins."
-    },
-    {
       title: "Ponctualité pour vos rendez-vous",
       desc: "Respect strict des horaires de vos consultations, séances ou examens."
     }
   ];
 
   return (
-    <section id="medical" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section id="medical" className="py-14 sm:py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="TAXI CONVENTIONNÉ"
@@ -83,7 +79,7 @@ export const MedicalTransport = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-6 order-first lg:order-none">
             {/* Photo reelle : prise en charge devant un etablissement de sante */}
             <figure className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-card-soft">
               <PhotoImage
@@ -91,8 +87,9 @@ export const MedicalTransport = () => {
                 alt="Freedom Taxi devant l'entree d'un hopital : prise en charge pour un rendez-vous medical"
                 width={1672}
                 height={941}
+                priority
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                className="block aspect-[16/9] w-full"
+                className="block aspect-[4/3] sm:aspect-[16/9] w-full"
                 imgClassName="h-full w-full object-cover"
               />
               <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-950/90 to-transparent px-5 py-4">
@@ -108,7 +105,7 @@ export const MedicalTransport = () => {
               </div>
 
               <h3 className="text-2xl font-bold mb-3 text-white">
-                Un accompagnement humain &amp; attentionné
+                Courses planifiées à l'avance
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-6">
@@ -121,7 +118,7 @@ export const MedicalTransport = () => {
                   <span className="text-gold-400">✓</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>Aide au port de bagages</span>
+                  <span>Prise en charge à l'heure demandée</span>
                   <span className="text-gold-400">✓</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">

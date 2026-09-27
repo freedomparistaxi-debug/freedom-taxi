@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Award, HeartHandshake, Sparkles, Phone } from 'lucide-react';
+import { ShieldCheck, Award, Sparkles, Phone } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import { Button } from './Button';
 import { BUSINESS_CONFIG } from '../config/business';
@@ -17,11 +17,6 @@ export const About = () => {
       desc: "La ponctualité est notre engagement premier. Chaque déplacement est minutieusement anticipé pour vous assurer des arrivées sereines et sans mauvaise surprise."
     },
     {
-      icon: HeartHandshake,
-      title: "Accompagnement humain",
-      desc: "Au-delà du simple trajet, nous vous offrons un réel accompagnement : aide pour vos bagages, confort de conduite et considération bienveillante pour les trajets médicaux."
-    },
-    {
       icon: Sparkles,
       title: "Confort & Propreté",
       desc: "Un habitacle soigné, non-fumeur, tempéré et parfaitement entretenu pour faire de chaque minute passée à bord un moment de quiétude."
@@ -29,7 +24,7 @@ export const About = () => {
   ];
 
   return (
-    <section id="apropos" className="py-20 lg:py-28 bg-white relative">
+    <section id="apropos" className="py-14 sm:py-20 lg:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionTitle
@@ -38,7 +33,7 @@ export const About = () => {
           subtitle="Votre partenaire de confiance pour tous vos trajets du quotidien, vos impératifs professionnels et vos soins de santé."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (

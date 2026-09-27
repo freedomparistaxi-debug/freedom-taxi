@@ -40,7 +40,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-surface-light relative">
+    <section id="services" className="py-14 sm:py-20 lg:py-28 bg-surface-light relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Titre de section inspiré du bas de la maquette */}

@@ -28,7 +28,6 @@ export const BUSINESS_CONFIG = {
   // Coordonnées de contact
   phones: [
     { label: "07 61 13 56 73", raw: "+33761135673" },
-    { label: "07 70 02 57 00", raw: "+33770025700" },
   ],
   // Numéro principal (premier de la liste)
   phone: "07 61 13 56 73",
@@ -47,10 +46,9 @@ export const BUSINESS_CONFIG = {
       title: "Déplacements vers les établissements de santé",
       shortDesc: "Vos trajets pour vos consultations, soins et déplacements médicaux.",
       fullDesc:
-        "Freedom Taxi vous accompagne avec discrétion, bienveillance et ponctualité pour vos rendez-vous de santé : consultations, examens, rééducation et déplacements vers les établissements de santé. Prise en charge en taxi conventionné.",
+        "Freedom Taxi assure vos déplacements vers les établissements de santé avec rigueur, discrétion et ponctualité pour vos rendez-vous de santé : consultations, examens, rééducation et déplacements vers les établissements de santé. Prise en charge en taxi conventionné.",
       points: [
         "Trajets vers les hôpitaux, cliniques et centres de soins",
-        "Accompagnement attentionné et aide à la prise en charge",
         "Véhicule confortable et entretenu avec soin",
         "Ponctualité pour vos rendez-vous médicaux",
       ],

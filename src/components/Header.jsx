@@ -136,12 +136,6 @@ export const Header = () => {
             >
               Appeler {BUSINESS_CONFIG.phone}
             </Button>
-            <a
-              href={`tel:${BUSINESS_CONFIG.phones[1].raw}`}
-              className="text-center py-3 text-sm font-medium text-ink-700 hover:text-brand-700 transition-colors"
-            >
-              ou {BUSINESS_CONFIG.phones[1].label}
-            </a>
             <Button
               href="#reservation"
               variant="outline-navy"
