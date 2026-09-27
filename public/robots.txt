@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Aucune zone privée n'est publiée, mais on l'interdit explicitement au cas où.
+Disallow: /api/
+Disallow: /originals-images/
+
+Sitemap: https://freedomparis.fr/sitemap.xml
