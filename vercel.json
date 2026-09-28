@@ -3,6 +3,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": null,
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
     { "source": "/mentions-legales", "destination": "/legal/mentions-legales.html" },
     { "source": "/politique-confidentialite", "destination": "/legal/politique-confidentialite.html" },

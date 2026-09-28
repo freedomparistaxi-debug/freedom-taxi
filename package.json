@@ -12,6 +12,7 @@
     "qa:gallery": "node scripts/qa-gallery.mjs",
     "qa:booking": "node scripts/qa-booking.mjs",
     "qa:form": "node scripts/qa-form.mjs",
+    "qa:api": "node scripts/qa-api.mjs",
     "preview": "vite preview",
     "start": "node server/index.js",
     "serve": "npm run build && node server/index.js"

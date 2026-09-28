@@ -29,10 +29,29 @@ export default async function handler(req, res) {
   // même quota de rate limiting (5/min pour le site entier).
   req.ip = clientIp(req);
 
-  // Vercel a déjà analysé le corps JSON : on le laisse tel quel.
-  req.body = req.body ?? {};
+  // Vercel a peut-être déjà analysé le corps ( objet, chaîne ou Buffer ),
+  // mais parfois il ne le fait pas et laisse le flux intact : dans ce cas
+  // req.body vaut undefined et readJsonBody doit consommer le flux.
+  // On ne met donc JAMAIS un objet vide à la place : cela ferait échouer la
+  // lecture et toutes les demandes seraient rejetées.
+  let body = req.body;
+  if (body === undefined) {
+    // Rien à faire : on laisse readJsonBody lire le flux de la requête.
+  } else {
+    if (Buffer.isBuffer(body)) body = body.toString('utf8');
+    if (typeof body === 'string') {
+      try {
+        body = body.trim() ? JSON.parse(body) : {};
+      } catch {
+        body = {};
+      }
+    }
+    req.body = body && typeof body === 'object' ? body : {};
+  }
 
-  securityHeaders(req, res);
+  // securityHeaders est un middleware Express : il appelle next() en fin de
+  // chaine. Sur Vercel il n'y a pas de chaine, on lui passe un no-op.
+  securityHeaders(req, res, () => {});
 
   return bookingHandler(req, res);
 }
