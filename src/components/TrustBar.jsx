@@ -3,11 +3,13 @@ import { ShieldCheck, Clock, Users, MapPin } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../config/business';
 
 export const TrustBar = () => {
+  // Le taxi conventionné est l'activité principale : il occupe la premiere
+  // case. Les autres qualités restent secondaires.
   const items = [
     {
       icon: ShieldCheck,
-      title: "Fiabilité",
-      desc: "Un service de confiance"
+      title: "Taxi conventionné",
+      desc: "Prise en charge de proximité"
     },
     {
       icon: Clock,
@@ -22,7 +24,7 @@ export const TrustBar = () => {
     {
       icon: MapPin,
       title: BUSINESS_CONFIG.area,
-      desc: "Paris et la proche région"
+      desc: "Le Blanc-Mesnil · Drancy · Le Bourget · Aulnay-sous-Bois"
     }
   ];
 

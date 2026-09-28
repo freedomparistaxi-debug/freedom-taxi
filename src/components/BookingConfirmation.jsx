@@ -41,15 +41,15 @@ export const BookingConfirmation = ({
       </h3>
       <p className="text-slate-600 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
         Merci <span className="font-semibold text-navy-900">{formData.name}</span>. Freedom Taxi
-        reviendra vers vous rapidement pour confirmer votre course. Si vous avez une question ou
-        si votre demande est urgente, n'hésitez pas à nous contacter directement au{' '}
+        reviendra vers vous rapidement pour confirmer votre réservation. N'hésitez pas à nous
+        contacter directement au{' '}
         <a
           href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
           className="font-semibold text-navy-900 underline underline-offset-2"
         >
           {BUSINESS_CONFIG.phone}
-        </a>
-        .
+        </a>{' '}
+        si vous avez besoin d'une information ou si votre demande est urgente.
       </p>
 
       {sentByMail && (

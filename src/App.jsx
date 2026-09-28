@@ -19,12 +19,14 @@ function App() {
       <main>
         <Hero />
         <TrustBar />
-        {/* Le bloc "taxi conventionné" est remonté juste après le Hero : c'est la
-            première vraie photo de service, elle est donc visible très tôt sur mobile. */}
+        {/* Hiérarchie de la page, alignée sur l'activité réelle du client :
+            taxi conventionné -> établissements de santé -> zone -> services
+            secondaires -> réservation. La photo "hôpital" arrive donc en
+            premier, immédiatement après le Hero. */}
         <MedicalTransport />
+        <ServiceArea />
         <Services />
         <AirportTransfers />
-        <ServiceArea />
         <VehicleGallery />
         <BookingForm />
         <About />

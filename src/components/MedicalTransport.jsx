@@ -9,11 +9,11 @@ export const MedicalTransport = () => {
   const points = [
     {
       title: "Prise en charge en taxi conventionné",
-      desc: "Transport de particuliers pour vos rendez-vous médicaux, sur prescription médicale de transport."
+      desc: "Transport de particuliers vers vos rendez-vous médicaux, en taxi conventionné."
     },
     {
       title: "Tous centres de soins & hôpitaux",
-      desc: "Liaisons régulières vers les hôpitaux et cliniques de Paris et de la Seine-Saint-Denis."
+      desc: "Liaisons régulières vers les hôpitaux et cliniques du Blanc-Mesnil, de Drancy, du Bourget, d'Aulnay-sous-Bois et de Paris."
     },
     {
       title: "Ponctualité pour vos rendez-vous",
@@ -21,20 +21,43 @@ export const MedicalTransport = () => {
     }
   ];
 
+  /** Prises en charge déjà prévues sur le site, à titre d'exemples. */
+  const destinations = [
+    "Hôpitaux et cliniques",
+    "Centres de soins et cabinets médicaux",
+    "Laboratoires d'analyses",
+    "Kinésithérapie et rééducation",
+    "Dialyse et soins réguliers",
+  ];
+
   return (
     <section id="medical" className="py-14 sm:py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="TAXI CONVENTIONNÉ"
-          title="Vos déplacements de santé en toute sérénité"
-          subtitle="Freedom Taxi assure vos déplacements vers les établissements de santé avec rigueur, confort et discrétion."
+          title="Vos déplacements vers les établissements de santé"
+          subtitle="L'activité principale de Freedom Taxi : des courses planifiées vers les hôpitaux, cliniques et centres de soins, au Blanc-Mesnil, à Drancy, au Bourget, à Aulnay-sous-Bois et aux alentours."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <p className="text-base sm:text-lg text-ink-700 leading-relaxed">
-              En tant que taxi conventionné, Freedom Taxi propose des déplacements adaptés à vos besoins de santé au départ de Paris, de la Seine-Saint-Denis et des communes limitrophes.
+              Vos déplacements vers les établissements de santé en taxi conventionné. Ponctualité, confort et accompagnement, sur réservation.
             </p>
+
+            <div className="pt-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-brand-700 mb-3">
+                Prises en charge prévues
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {destinations.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-ink-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
               {points.map((pt, idx) => (
@@ -53,8 +76,8 @@ export const MedicalTransport = () => {
             <div className="p-4 rounded-xl bg-brand-50/70 border border-brand-100 flex items-start gap-3 text-xs sm:text-sm text-ink-700">
               <FileText className="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-navy-900">Documents utiles : </span>
-                Pour un trajet conventionné, penser à vous munir de votre prescription médicale de transport et de votre carte Vitale.
+                <span className="font-semibold text-navy-900">Réservation : </span>
+                Appelez-nous ou passez par le formulaire de réservation en ligne, en précisant votre lieu de départ, la destination et l'heure souhaitée.
               </div>
             </div>
 
@@ -124,6 +147,10 @@ export const MedicalTransport = () => {
                 <div className="flex items-center justify-between text-slate-300">
                   <span>Attente sur place</span>
                   <span className="text-gold-400">✓ Sur demande</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-300">
+                  <span>Rendez-vous réguliers</span>
+                  <span className="text-gold-400">✓</span>
                 </div>
               </div>
             </div>

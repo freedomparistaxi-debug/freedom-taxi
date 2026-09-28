@@ -19,7 +19,7 @@ export const Hero = () => {
               {/* Positionnement */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-[10px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0"></span>
-                Taxi parisien — Taxi conventionné
+                Taxi parisien — taxi conventionné
               </div>
 
               <div className="space-y-3">
@@ -40,7 +40,10 @@ export const Hero = () => {
               <div className="w-16 h-1 bg-gold-400 rounded-full"></div>
 
               <p className="text-[15px] sm:text-lg text-ink-700 leading-relaxed">
-                Taxis personnels, professionnels et taxi conventionné vers les établissements de santé, au départ du Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours. Ponctualité et confort, <strong className="text-ink-900 font-semibold">sur réservation ou par téléphone</strong>.
+                Vos déplacements vers les établissements de santé en taxi conventionné, au départ du Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours. Ponctualité, confort et accompagnement, sur réservation.
+              </p>
+              <p className="text-sm sm:text-base text-ink-500 leading-relaxed">
+                Trajets personnels et professionnels sur demande.
               </p>
 
               {/* Boutons d'action */}
