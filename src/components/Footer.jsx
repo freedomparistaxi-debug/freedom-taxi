@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Mail, Shield, ChevronUp } from 'lucide-react';
+import { Shield, ChevronUp } from 'lucide-react';
 import { Logo } from './Logo';
 import { BUSINESS_CONFIG } from '../config/business';
 
@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <footer className="bg-navy-950 text-white border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           
           <div className="space-y-4">
             <Logo light={true} />
@@ -48,39 +48,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <div className="text-sm font-bold uppercase tracking-wider text-white">
-              Nous contacter
-            </div>
-            <div className="space-y-3 text-sm text-slate-400">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0" />
-                <span>{BUSINESS_CONFIG.area}</span>
-              </div>
-              {BUSINESS_CONFIG.phones.map((phone) => (
-                <div key={phone.raw} className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-                  <a
-                    href={`tel:${phone.raw}`}
-                    aria-label={`Appeler Freedom Taxi au ${phone.label}`}
-                    className="font-bold text-white hover:text-gold-400 transition-colors"
-                  >
-                    {phone.label}
-                  </a>
-                </div>
-              ))}
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-gold-400 flex-shrink-0" />
-                <a href={`mailto:${BUSINESS_CONFIG.email}`} className="break-all hover:text-gold-400 transition-colors">
-                  {BUSINESS_CONFIG.email}
-                </a>
-              </div>
-              <p className="text-xs text-slate-500 pt-2">
-                Service disponible {BUSINESS_CONFIG.availability.toLowerCase()}.
-              </p>
-            </div>
-          </div>
-
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
@@ -95,12 +62,6 @@ export const Footer = () => {
               fonctionnent au clavier sans dépendre de JavaScript.
             */}
             <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Informations légales">
-              <a
-                href="/mentions-legales"
-                className="hover:text-slate-300 underline underline-offset-4 transition-colors"
-              >
-                Mentions légales
-              </a>
               <a
                 href="/politique-confidentialite"
                 className="hover:text-slate-300 underline underline-offset-4 transition-colors"

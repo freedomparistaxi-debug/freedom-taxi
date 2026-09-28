@@ -65,7 +65,7 @@ export const MedicalTransport = () => {
                 size="md"
                 icon={Phone}
               >
-                Nous contacter ({BUSINESS_CONFIG.phone})
+                Appeler {BUSINESS_CONFIG.phone}
               </Button>
 
               <Button

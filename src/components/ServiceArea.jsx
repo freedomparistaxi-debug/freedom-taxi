@@ -10,9 +10,9 @@ export const ServiceArea = () => {
     <section className="py-14 sm:py-20 lg:py-28 bg-brand-800 text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionTitle
-          badge="PÉRIMÈTRE D'INTERVENTION"
-          title="Paris / Seine-Saint-Denis et alentours"
-          subtitle="Freedom Taxi intervient dans Paris, la Seine-Saint-Denis et les communes limitrophes, ainsi que sur les longues distances."
+          badge="NOTRE SECTEUR"
+          title="Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois"
+          subtitle="Freedom Taxi intervient principalement dans ces quatre communes et dans les communes limitrophes de la Seine-Saint-Denis, ainsi que sur Paris selon les trajets et les longues distances."
           light={true}
         />
 
@@ -21,16 +21,16 @@ export const ServiceArea = () => {
             <div className="space-y-4">
               <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 leading-snug">
                 <MapPin className="w-6 h-6 text-gold-300 flex-shrink-0" />
-                <span>Une zone d'intervention élargie</span>
+                <span>Notre secteur d'intervention</span>
               </h3>
               <p className="text-brand-100 text-sm sm:text-base leading-relaxed">
-                Freedom Taxi intervient au quotidien pour toutes vos prises en charge à Paris et en Seine-Saint-Denis, que ce soit pour un trajet local, une liaison vers les gares parisiennes ou un transfert aéroportuaire.
+                Freedom Taxi intervient au quotidien au Blanc-Mesnil, à Drancy, au Bourget et à Aulnay-sous-Bois, ainsi que dans les communes limitrophes de la Seine-Saint-Denis : trajet local, liaison vers les gares, transfert aéroportuaire ou course vers un établissement de santé.
               </p>
             </div>
 
             <div className="space-y-3 pt-2">
               <div className="text-[11px] uppercase tracking-[0.18em] text-brand-200 font-bold">
-                Zones régulières
+                Nos zones régulières
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-50">
                 {BUSINESS_CONFIG.coverage.map((area, idx) => (

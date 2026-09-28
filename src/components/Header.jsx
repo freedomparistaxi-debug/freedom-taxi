@@ -21,6 +21,40 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  /**
+   * Barre d'action mobile : masquée tant que l'utilisateur est en haut de page
+   * (elle n'y est pas utile et retirerait de l'espace), réapparue dès qu'il
+   * commence à défiler, et masquée à nouveau tout en bas de la page pour ne
+   * jamais recouvrir la dernière ligne de contenu.
+   */
+  const [mobileBarVisible, setMobileBarVisible] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      const doc = document.documentElement;
+      const atBottom = y + window.innerHeight >= doc.scrollHeight - 120;
+      setMobileBarVisible(y > 220 && !atBottom);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
   const navLinks = [
     { label: 'Accueil', href: '#hero' },
     { label: 'Nos services', href: '#services' },
@@ -150,8 +184,14 @@ export const Header = () => {
         </div>
       )}
 
-      {/* Barre fixe mobile : deux actions seulement, hauteur contenue */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/97 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex gap-2.5 shadow-[0_-2px_16px_-8px_rgba(21,33,46,0.18)]">
+      {/* Barre fixe mobile : deux actions seulement, hauteur contenue.
+          Masquée en haut de page et en bas de page, visible pendant le defilement. */}
+      <div
+        className={`sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/97 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex gap-2.5 shadow-[0_-2px_16px_-8px_rgba(21,33,46,0.18)] transition-transform duration-300 ease-out ${
+          mobileBarVisible ? 'translate-y-0' : 'translate-y-full'
+        }`}
+        aria-hidden={!mobileBarVisible}
+      >
         <a
           href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
           className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-brand-600 text-white font-semibold text-sm active:scale-[0.99] transition-colors hover:bg-brand-700"

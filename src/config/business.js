@@ -18,9 +18,15 @@ export const BUSINESS_CONFIG = {
   tagline: "Taxi parisien — Taxi conventionné",
   positioning: "Taxi parisien — Taxi conventionné",
 
+  // Secteur d'intervention principal.
+  // Affichage public : uniquement la marque et la zone de desserte.
+  sector: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours",
+  sectorShort: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois",
+  heroLine: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours",
+
   // Zone desservie (aucune commune exclusive)
-  city: "Paris / Seine-Saint-Denis",
-  area: "Paris / Seine-Saint-Denis et alentours",
+  city: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois",
+  area: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours",
   postalCode: "",
   department: "",
   region: "Île-de-France",
@@ -79,7 +85,7 @@ export const BUSINESS_CONFIG = {
     },
     longDistance: {
       title: "Trajets locaux et longue distance",
-      shortDesc: "Paris et sa proche région, ainsi que les longues distances.",
+      shortDesc: "Le Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et la proche région.",
       fullDesc:
         "Que ce soit un trajet local en Île-de-France ou une longue distance, Freedom Taxi organise votre déplacement sur réservation préalable.",
       points: [
@@ -103,9 +109,11 @@ export const BUSINESS_CONFIG = {
 
   // Zones couvertes
   coverage: [
-    "Paris (tous arrondissements)",
-    "Seine-Saint-Denis (93) et communes limitrophes",
-    "Petite couronne et proche banlieue",
-    "Trajets longue distance sur réservation",
+    "Le Blanc-Mesnil",
+    "Drancy",
+    "Le Bourget",
+    "Aulnay-sous-Bois",
+    "Seine-Saint-Denis et alentours",
+    "Paris selon les trajets",
   ],
 };
