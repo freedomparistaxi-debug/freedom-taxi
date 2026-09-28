@@ -14,7 +14,15 @@
 
 import nodemailer from 'nodemailer';
 
-const RECIPIENT_FALLBACK = 'freedom.paris.taxi@gmail.com';
+/**
+ * Destinataire des demandes de réservation.
+ *
+ * La variable d'environnement BOOKING_TO est prioritaire : c'est elle qu'il
+ * faut renseigner chez l'hébergeur. Cette valeur n'est utilisée que si
+ * BOOKING_TO est absente, pour que le site ne perde jamais une réservation.
+ * Elle doit rester identique à BOOKING_RECIPIENT (src/config/business.js).
+ */
+const RECIPIENT_FALLBACK = 'Dominique_tanoh94@yahoo.fr';
 
 export const REQUIRED_ENV = [
   'SMTP_HOST',
@@ -68,6 +76,7 @@ const LABELS = {
   destination: 'Destination',
   passengers: 'Passagers',
   rideType: 'Type de trajet',
+  callbackTime: 'Moment souhaité pour être recontacté',
   message: 'Message',
 };
 
@@ -80,6 +89,7 @@ export const buildMessage = (booking) => {
     email: value('email') || 'Non renseigné',
     passengers: value('passengers') ? `${value('passengers')} passager(s)` : '—',
     message: value('message') || '—',
+    callbackTime: value('callbackTime') || 'Non précisé',
   };
 
   const subject = 'Nouvelle demande de réservation — Freedom Taxi';
@@ -176,6 +186,7 @@ export const validateBooking = (payload = {}) => {
     destination: clean(payload.destination),
     passengers: clean(payload.passengers),
     rideType: clean(payload.rideType),
+    callbackTime: clean(payload.callbackTime),
     message: clean(payload.message),
   };
 

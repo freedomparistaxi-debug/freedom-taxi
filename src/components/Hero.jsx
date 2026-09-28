@@ -40,7 +40,7 @@ export const Hero = () => {
               <div className="w-16 h-1 bg-gold-400 rounded-full"></div>
 
               <p className="text-[15px] sm:text-lg text-ink-700 leading-relaxed">
-                Taxis personnels, professionnels et taxi conventionné pour les établissements de santé, au Blanc-Mesnil, à Drancy, au Bourget, à Aulnay-sous-Bois et dans les communes limitrophes. Ponctualité et confort, <strong className="text-ink-900 font-semibold">sur réservation ou par téléphone</strong>.
+                Taxis personnels, professionnels et taxi conventionné vers les établissements de santé, au départ du Blanc-Mesnil, Drancy, Le Bourget, Aulnay-sous-Bois et alentours. Ponctualité et confort, <strong className="text-ink-900 font-semibold">sur réservation ou par téléphone</strong>.
               </p>
 
               {/* Boutons d'action */}

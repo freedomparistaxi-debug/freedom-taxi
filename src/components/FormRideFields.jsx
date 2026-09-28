@@ -1,5 +1,6 @@
 import React from 'react';
-import { Calendar, Clock, MapPin, Users, AlertCircle } from 'lucide-react';
+import { Calendar, Clock, Users, AlertCircle, PhoneCall } from 'lucide-react';
+import { AddressField } from './AddressField';
 
 export const FormRideFields = ({ formData, errors, onChange, today }) => {
   return (
@@ -44,43 +45,25 @@ export const FormRideFields = ({ formData, errors, onChange, today }) => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="pickup" className="block text-xs font-semibold text-slate-700 mb-1">Adresse de départ *</label>
-          <div className="relative">
-            <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
-            <input
-              id="pickup"
-              name="pickup"
-              type="text"
-              placeholder="Adresse de départ"
-              value={formData.pickup}
-              onChange={onChange}
-              className={`w-full pl-10 pr-3 py-2.5 rounded-xl border text-sm text-navy-900 bg-surface-light focus:bg-white focus:outline-none focus:ring-2 ${
-                errors.pickup ? 'border-rose-400' : 'border-slate-200 focus:ring-brandBlue-500/40'
-              }`}
-            />
-          </div>
-          {errors.pickup && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.pickup}</p>}
-        </div>
+        <AddressField
+          id="pickup"
+          name="pickup"
+          label="Adresse de départ *"
+          placeholder="Commencez à saisir votre adresse"
+          value={formData.pickup}
+          error={errors.pickup}
+          onChange={onChange}
+        />
 
-        <div>
-          <label htmlFor="destination" className="block text-xs font-semibold text-slate-700 mb-1">Destination *</label>
-          <div className="relative">
-            <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
-            <input
-              id="destination"
-              name="destination"
-              type="text"
-              placeholder="Aéroport, hôpital, gare, adresse..."
-              value={formData.destination}
-              onChange={onChange}
-              className={`w-full pl-10 pr-3 py-2.5 rounded-xl border text-sm text-navy-900 bg-surface-light focus:bg-white focus:outline-none focus:ring-2 ${
-                errors.destination ? 'border-rose-400' : 'border-slate-200 focus:ring-brandBlue-500/40'
-              }`}
-            />
-          </div>
-          {errors.destination && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.destination}</p>}
-        </div>
+        <AddressField
+          id="destination"
+          name="destination"
+          label="Destination *"
+          placeholder="Aéroport, hôpital, gare, adresse..."
+          value={formData.destination}
+          error={errors.destination}
+          onChange={onChange}
+        />
       </div>
 
       <div>
@@ -105,6 +88,31 @@ export const FormRideFields = ({ formData, errors, onChange, today }) => {
           />
         </div>
         {errors.passengers && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.passengers}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="callbackTime" className="block text-xs font-semibold text-slate-700 mb-1">
+          À quel moment souhaitez-vous être recontacté(e) ?{' '}
+          <span className="text-slate-400 font-normal">(facultatif)</span>
+        </label>
+        <div className="relative">
+          <PhoneCall className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+          <input
+            id="callbackTime"
+            name="callbackTime"
+            type="text"
+            placeholder="Matin, après-midi, soirée — ou vos horaires"
+            value={formData.callbackTime}
+            onChange={onChange}
+            className={`w-full pl-10 pr-3 py-2.5 rounded-xl border text-sm text-navy-900 bg-surface-light focus:bg-white focus:outline-none focus:ring-2 ${
+              errors.callbackTime ? 'border-rose-400' : 'border-slate-200 focus:ring-brandBlue-500/40'
+            }`}
+          />
+        </div>
+        <p className="text-xs text-slate-500 mt-1">
+          Indiquez le moment qui vous convient le mieux pour que nous vous rappelions.
+        </p>
+        {errors.callbackTime && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.callbackTime}</p>}
       </div>
     </div>
   );

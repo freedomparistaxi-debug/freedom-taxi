@@ -10,7 +10,17 @@
  *     (numéros, zone, services) se fait UNIQUEMENT dans ce fichier.
  */
 
-export const BOOKING_RECIPIENT = 'freedom.paris.taxi@gmail.com';
+/**
+ * Adresse de destination des demandes de réservation.
+ *
+ * ⚠️  Doublon volontaire de server/booking-mailer.js : ces deux fichiers
+ *     n'importent pas le même module (l'un est compilé pour le navigateur,
+ *     l'autre pour Node), la valeur doit donc être reportée dans les deux.
+ *
+ * Côté serveur, la variable d'environnement BOOKING_TO est prioritaire :
+ * c'est elle qu'il faut renseigner chez l'hébergeur.
+ */
+export const BOOKING_RECIPIENT = 'Dominique_tanoh94@yahoo.fr';
 
 export const BUSINESS_CONFIG = {
   name: "FREEDOM TAXI",

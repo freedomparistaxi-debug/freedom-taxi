@@ -191,10 +191,10 @@ cp .env.example .env      # Windows : copy .env.example .env
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=freedom.paris.taxi@gmail.com
-SMTP_PASS=xxxxxxxxxxxxxxxx
-BOOKING_TO=freedom.paris.taxi@gmail.com
-BOOKING_FROM=Freedom Taxi <freedom.paris.taxi@gmail.com>
+SMTP_USER=adresse-du-compte-expéditeur
+SMTP_PASS=mot-de-passe-application
+BOOKING_TO=Dominique_tanoh94@yahoo.fr
+BOOKING_FROM=Freedom Taxi <adresse-du-compte-expéditeur>
 PORT=5175
 ```
 

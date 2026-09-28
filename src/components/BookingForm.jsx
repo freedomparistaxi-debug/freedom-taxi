@@ -17,6 +17,7 @@ export const BookingForm = () => {
     destination: '',
     passengers: '1',
     rideType: 'Trajet classique',
+    callbackTime: '',
     message: '',
   };
 
@@ -80,8 +81,9 @@ export const BookingForm = () => {
       `Destination : ${data.destination}`,
       `Passagers : ${data.passengers || '1'}`,
       `Type de trajet : ${data.rideType}`,
+      data.callbackTime ? `Moment souhaité pour être recontacté : ${data.callbackTime}` : null,
       `Message : ${data.message || '—'}`,
-    ];
+    ].filter(Boolean);
     return `mailto:${BOOKING_RECIPIENT}?subject=${encodeURIComponent('Nouvelle demande de réservation — Freedom Taxi')}&body=${encodeURIComponent(lines.join('\n'))}`;
   };
 
@@ -108,7 +110,10 @@ export const BookingForm = () => {
 
       setStatus('success');
     } catch (err) {
-      setStatus('error');
+      // L'envoi automatique a échoué : on ne bloque JAMAIS la réservation.
+      // Le client repart avec un e-mail entièrement pré-rempli, qu'il lui
+      // suffit d'envoyer depuis sa messagerie.
+      setStatus('prepared');
       setServerMessage(
         err.message ||
           "Le service d'envoi est momentanément indisponible."
@@ -169,7 +174,19 @@ export const BookingForm = () => {
           <div className="lg:col-span-7 xl:col-span-8">
             <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-card-soft border border-slate-200/80">
               {status === 'success' ? (
-                <BookingConfirmation formData={formData} onReset={handleReset} />
+                <BookingConfirmation
+                  formData={formData}
+                  onReset={handleReset}
+                  sentByMail={false}
+                />
+              ) : status === 'prepared' ? (
+                <BookingConfirmation
+                  formData={formData}
+                  onReset={handleReset}
+                  sentByMail
+                  mailtoHref={buildMailto(formData)}
+                  serverMessage={serverMessage}
+                />
               ) : (
                 <BookingFormFields
                   formData={formData}

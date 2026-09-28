@@ -10,6 +10,8 @@
     "images:plates": "node scripts/plate-branding.mjs",
     "qa": "node scripts/qa-viewport.mjs",
     "qa:gallery": "node scripts/qa-gallery.mjs",
+    "qa:booking": "node scripts/qa-booking.mjs",
+    "qa:form": "node scripts/qa-form.mjs",
     "preview": "vite preview",
     "start": "node server/index.js",
     "serve": "npm run build && node server/index.js"
